@@ -63,7 +63,6 @@ class ViewController: UIViewController {
     
     @IBAction func sliderValueChange() {
         number = Int(slider.value)
-        print(#line,#function)
     }
     
     @IBAction func textFieldGetChange() {
