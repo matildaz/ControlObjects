@@ -69,5 +69,14 @@ class ViewController: UIViewController {
     @IBAction func textFieldGetChange() {
         number = Int(textField.text ?? "") ?? 128
     }
+    
+    @IBAction func screenHasBeenTapped(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: view)
+        if location.x < view.bounds.midX {
+            number -= 1
+        } else {
+            number += 1
+        }
+    }
 }
 
