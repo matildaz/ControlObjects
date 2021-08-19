@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var button: UIButton!
     @IBOutlet var switches: [UISwitch]!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var textField: UITextField!
@@ -26,9 +27,13 @@ class ViewController: UIViewController {
         updateUI()
         view.isUserInteractionEnabled = true
         view.backgroundColor = .systemOrange
-        // Do any additional setup after loading the view.
     }
 
+    @IBAction func buttonGetPressed() {
+        number = (number + 1) % 256
+        button.setTitle("\(number)", for: [])
+    }
+    
     func rottateSwitches() {
         for item2 in switches {
             item2.layer.transform = CATransform3DMakeRotation(-.pi/2, 0, 0, 1)
@@ -51,6 +56,7 @@ class ViewController: UIViewController {
     
     /// option + cmd + / = Description
     func updateUI() {
+        button.setTitle("\(number)", for: [])
         // присваваем значение для любых ситуаций []
         textField.text = "\(number)"
         switchUpdate()
